@@ -1,0 +1,78 @@
+*{
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body
+{
+    background: url(../img/fondoinicio.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+header
+{
+	width: 100%;
+}
+
+.navegacion
+{
+	width: 1000px;
+	margin: 30px auto;
+    background: #000000;
+    opacity:.60;    
+}
+
+.navegacion ul
+{
+	list-style: none;
+}
+
+.menu > li
+{
+	position: relative;
+	display: inline-block;
+}
+
+.menu > li > a
+{
+	display: block;
+	padding: 20px 25px;
+	color: white;
+	font-family: 'Open sans';
+}
+
+.menu li a:hover
+{
+	color: #CE7D35;
+	transition: all .3s;
+}
+
+/* Submenu*/
+
+.submenu
+{
+	position: absolute;
+	background: #141414;
+	width: 120%;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 1.5s;
+}
+
+.submenu li a
+{
+	display: block;
+	padding: 15px;
+	color: #fff;
+	font-family: 'Open sans';
+	text-decoration: none;
+}
+
+.menu li:hover .submenu
+{
+	visibility: visible;
+	opacity: 1;
+}
