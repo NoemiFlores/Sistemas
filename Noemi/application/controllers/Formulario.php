@@ -60,9 +60,27 @@ class Formulario extends CI_Controller
         $this->load->view('inicio');
     }
 
-    public function login()
+    public function perfil()
     {
-        $this->load->view('login');
+        $this->load->view('perfil');
+    }
+
+    public function login()
+    {  
+       if(isset($_POST['contra']))
+       {
+           $this->load->model('mlogin');
+           if($this->mlogin->login($_POST['usuario'],$_POST['contra']))
+           {
+               $this->session->set_userdata('usuario',$_POST['usuario']);
+               redirect('Formulario/perfil');
+           }
+           else
+           {
+               redirect('Formulario/login#bad-contra');
+           }
+       }
+       $this->load->view('login'); 
     }
 }
 ?>

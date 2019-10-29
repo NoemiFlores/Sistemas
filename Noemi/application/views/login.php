@@ -20,12 +20,12 @@
                 <div class="col-12 user-img">
                     <img src="<?php echo base_url();?>Assets/img/avatar.jpg"/>
                 </div>
-                <form class="col-12">
+                <form class="col-12" method="post">
                     <div class="form-group" id="user-group">
-                        <input type="text" class="form-control" placeholder="Nombre de usuario"/>
+                        <input type="text" name="usuario" id="usuario "class="form-control" placeholder="Nombre de usuario" required/>
                     </div>
                     <div class="form-group" id="contraseña-group">
-                        <input type="password" class="form-control" placeholder="Contraseña"/>
+                        <input type="password" name="contra" id="contra" class="form-control" placeholder="Contraseña" required/>
                     </div>
                     <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Ingresar</button>
                 </form>
