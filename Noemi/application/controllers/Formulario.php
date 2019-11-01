@@ -7,6 +7,8 @@ class Formulario extends CI_Controller
     {
         parent::__construct();//herencia
         $this->load->model('mdatos');//Manda llamar 'mdatos'
+        // $this->load->library('session');
+        // session_start();//manejar sesiones
     }
 
     public function index()
@@ -55,32 +57,75 @@ class Formulario extends CI_Controller
         $this->load->view('mostrarDatos',$data);
     }
 
+    //vista inicio
     public function inicio()
     {
         $this->load->view('inicio');
     }
 
+    //vista perfil
     public function perfil()
     {
         $this->load->view('perfil');
     }
 
+    //login
     public function login()
-    {  
-       if(isset($_POST['contra']))
-       {
-           $this->load->model('mlogin');
-           if($this->mlogin->login($_POST['usuario'],$_POST['contra']))
-           {
-               $this->session->set_userdata('usuario',$_POST['usuario']);
-               redirect('Formulario/perfil');
-           }
-           else
-           {
-               redirect('Formulario/login#bad-contra');
-           }
-       }
-       $this->load->view('login'); 
+    {
+        //$data['title']='Inicia sesion';
+        $this->load->view('login');
+    }
+
+    function login_validation()
+    {
+        //$this->load->library('form_validation');
+        $this->form_validation->set_rules('usuario','Usuario','required');
+        $this->form_validation->set_rules('contra','Contra','required');
+        if($this->form_validation->run())
+        {
+            //true
+            $usuario=$this->input->post('usuario');
+            $contra=$this->input->post('contra');
+            //model function
+            $this->load->model('mlogin');
+            if($this->mlogin->can_login($usuario,$contra))
+            {
+                $session_data=array(
+                    'usuario' => $usuario
+                );
+                $this->session->set_userdata($session_data);
+                redirect(base_url().'Formulario/enter');
+            }
+            else
+            {
+                $this->session->set_flashdata('error','Usuario o contrasena incorrecta');
+                redirect(base_url().'Formulario/login');
+            }
+        }
+        else
+        {
+            //false
+            $this->login();
+        }
+    }
+
+    function enter()
+    {
+        if($this->session->userdata('usuario')!= '')
+        {
+            echo '<h2>Bienvenid@ - '.$this->session->userdata('usuario').'</h2>';
+            echo '<label><a href="'.base_url().'Formulario/logout">Logout</a></label>';
+        }
+        else
+        {
+            redirect(base_url().'Formulario/login');
+        }
+    }
+
+    function logout()
+    {
+        $this->session->unset_userdata('usuario');
+        redirect(base_url().'Formulario/login');
     }
 }
 ?>

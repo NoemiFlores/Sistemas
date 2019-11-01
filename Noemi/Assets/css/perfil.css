@@ -50,6 +50,11 @@ header
 	transition: all .3s;
 }
 
+h1
+{
+	text-align: center;
+}
+
 /* Submenu*/
 
 .submenu

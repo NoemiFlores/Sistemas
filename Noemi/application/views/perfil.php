@@ -15,8 +15,11 @@
 				<li><a href="#">Logout</a></li>
 		</nav>
 	</header>
+  <h1>Bienvenid@</h1>
         <script src="<?php echo base_url()?>Assets/js/jquery-3.4.1.min.js"></script>
         <script src="<?php echo base_url()?>Assets/js/popper.min.js"></script>
         <script src="<?php echo base_url()?>Assets/js/bootstrap.js"></script>
+
   </body>
 </html>
+

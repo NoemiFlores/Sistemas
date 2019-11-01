@@ -7,13 +7,13 @@ class Mlogin extends CI_Model
         parent::__construct();
     }
 
-    public function login($usuario,$contra)
+    function can_login($usuario,$contra)
     {
-        /*nos devuelve una fila si existe*/
         $this->db->where('usuario',$usuario);
         $this->db->where('contra',$contra);
-        $q=$this->db->get('persona');
-        if($q->num_rows()>0)
+        $query=$this->db->get('persona');
+
+        if($query->num_rows()>0)
         {
             return true;
         }
