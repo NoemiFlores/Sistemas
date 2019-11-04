@@ -11,6 +11,7 @@ class Formulario extends CI_Controller
         // session_start();//manejar sesiones
     }
 
+    //Formulario.php
     public function index()
 	{
         $this->load->view('Formulario');
@@ -57,19 +58,13 @@ class Formulario extends CI_Controller
         $this->load->view('mostrarDatos',$data);
     }
 
-    //vista inicio
+    //inicio.php
     public function inicio()
     {
         $this->load->view('inicio');
     }
 
-    //vista perfil
-    public function perfil()
-    {
-        $this->load->view('perfil');
-    }
-
-    //login
+    //login.php
     public function login()
     {
         //$data['title']='Inicia sesion';
@@ -126,6 +121,26 @@ class Formulario extends CI_Controller
     {
         $this->session->unset_userdata('usuario');
         redirect(base_url().'Formulario/login');
+    }
+
+    //noticias.php
+    public function noticias()
+    {
+        $this->load->view('noticias');
+    }
+
+    public function getNoticias()
+    {
+        $titulo = $POST['ititulo'];
+        $texto = $POST['itexto'];
+        $autor = $POST['iautor'];
+        $fecha = $POST['ifecha'];
+        
+        echo "Titulo: ".$titulo."<br>"."Texto: ".$texto."<br>"."Autor: ".$autor."<br>"."Fecha: ".$fecha."<br>";
+
+        $this->load->model('mnoticias');
+        $this->mnoticias->guardar($titulo,$texto,$autor,$fecha);
+        redirect('noticias');
     }
 }
 ?>

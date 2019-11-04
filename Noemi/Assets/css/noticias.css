@@ -1,0 +1,94 @@
+*{
+	-webkit-box-sizing:  border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body
+{
+	background: url(../img/fondo.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+nav
+{
+	background-color:#3b4652;
+    opacity:.85;
+    padding:7px 20px;
+    box-shadow:0px 0px 3px #848484;
+}
+
+h1
+{
+	font-style: italic;
+	text-align: center;
+	color: white;
+}
+
+input[type=text],input[type=text],input[type=email],select,texttarea
+{
+	width: 100%;
+	padding: 17px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	resize: vertical;
+}
+
+label
+{
+	padding: 10px 10px 10px 0;
+	display: inline-block;
+}
+
+input[type=submit]
+{/*botones*/
+	background-color: #E5A89B;
+	color: black;
+	padding: 12px 20px;
+	border:  none;
+	border-radius: 4px;
+	cursor: pointer;
+	float: left;
+}
+
+.container
+{/*color fondo formulario*/
+	border-radius: 10px;
+	background-color:#3b4652;
+	padding: 25px;
+}
+
+.color_labels
+{
+	color:  #FF337D;
+}
+
+.col-25
+{
+	float: left;
+	width: 25%;
+	margin-top: 0px;
+}
+
+.col-75
+{
+	float: left;
+	width: 75%;
+	margin-top: 0px;
+}
+
+.row:after
+{ 
+	content: "";
+	display: block;
+	clear: both;
+}
+
+@media screen and (max-width: 600px) 
+{
+	.col-25, .col-75, input[type=submit] 
+	{
+        width: 100%;
+        margin-top: 0;
+    }
+}
