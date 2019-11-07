@@ -7,8 +7,15 @@ class Mnoticias extends CI_Model
         parent::__construct();
     }
 
-    public function guardar($titulo,$texto,$autor,$fecha)
+    public function guardar($param)
     {
-        return $this->db->query("INSERT into noticia(titulo, texto, autor, fecha) values('{$titulo}','{$texto}','{$autor}','{$fecha}')");
+        $campos=array(
+            'titulo'=>$param['titulo'],
+            'texto'=>$param['texto'],
+            'autor'=>$param['autor'],
+            'fecha'=>$param['fecha'],
+        );
+
+        $this->db->insert('noticia',$campos);
     }
 }

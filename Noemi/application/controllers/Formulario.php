@@ -108,7 +108,8 @@ class Formulario extends CI_Controller
     {
         if($this->session->userdata('usuario')!= '')
         {
-            echo '<h2>Bienvenid@ - '.$this->session->userdata('usuario').'</h2>';
+            echo '<h1>Bienvenid@ - '.$this->session->userdata('usuario').'</h1>';
+            echo '<h4><a href="'.base_url().'Formulario/noticias">Registrar noticia</a></h4>';
             echo '<label><a href="'.base_url().'Formulario/logout">Logout</a></label>';
         }
         else
@@ -120,27 +121,13 @@ class Formulario extends CI_Controller
     function logout()
     {
         $this->session->unset_userdata('usuario');
-        redirect(base_url().'Formulario/login');
+        redirect(base_url().'Formulario/inicio');
     }
 
     //noticias.php
     public function noticias()
     {
         $this->load->view('noticias');
-    }
-
-    public function getNoticias()
-    {
-        $titulo = $POST['ititulo'];
-        $texto = $POST['itexto'];
-        $autor = $POST['iautor'];
-        $fecha = $POST['ifecha'];
-        
-        echo "Titulo: ".$titulo."<br>"."Texto: ".$texto."<br>"."Autor: ".$autor."<br>"."Fecha: ".$fecha."<br>";
-
-        $this->load->model('mnoticias');
-        $this->mnoticias->guardar($titulo,$texto,$autor,$fecha);
-        redirect('noticias');
     }
 }
 ?>

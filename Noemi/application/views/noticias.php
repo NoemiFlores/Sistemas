@@ -12,7 +12,7 @@
 			<h1>Registra tu noticia</h1>
 	</nav>
 	<div class="container"> <!-- contenedor principal-->
-	<form action="Formulario/getNoticias" method="post">
+	<form action="<?php echo base_url();?>cnoticias/guardar" method="post">
 
 	<div class="row" style="/*border: 5px solid red"> <!--con el row secciona el elemento, indicando que es un renglon --> 
 		<div class="col-25" style="/*border: 5px solid blue*/">
@@ -40,7 +40,7 @@
 		</div>
 
 		<div class="col-75" style="/*border: 5px solid cyan">
-			<input type="text" name="iautor" id="iautor" maxLenght="50" placeholder="Autor de la noticia" required>
+			<input type="text" name="iautor" id="iautor" readonly value="<?php echo $this->session->userdata('usuario')?>">
 		</div>
 	</div>
 

@@ -8,17 +8,17 @@ class cnoticias extends CI_Controller
         $this->load->model('mnoticias');
     }
 
-    public function noticia()
-    {
-        $this->load->view('noticias');
-    }
+    // public function noticia()
+    // {
+    //     $this->load->view('noticias');
+    // }
 
     public function guardar()
     {
-        $param['titulo'] = $this->load->post('ititulo');
-        $param['texto'] = $this->load->post('itexto');
-        $param['autor'] = $this->load->post('iautor');
-        $param['fecha'] = $this->load->post('ifecha');
+        $param['titulo']=$this->input->post('ititulo');
+        $param['texto']=$this->input->post('itexto');
+        $param['autor']=$this->input->post('iautor');
+        $param['fecha']=$this->input->post('ifecha');
 
         $this->mnoticias->guardar($param);
     }
