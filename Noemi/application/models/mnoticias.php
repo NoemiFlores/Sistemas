@@ -18,4 +18,9 @@ class Mnoticias extends CI_Model
 
         $this->db->insert('noticia',$campos);
     }
+
+    // public function guardar($titulo,$texto,$autor,$fecha)
+    // {
+    //     return $this->db->query("INSERT INTO noticia(titulo,texto,autor,fecha) values('{$titulo}','{$texto}','{$autor}','{$fecha}')");
+    // }
 }
