@@ -21,24 +21,6 @@
 			</ul>
 		</nav>
 	</header>
-  <h1>Ultimas noticias</h1>
-  <table border=1 align=center>
-  <tr>
-  <th>Id</th>
-  <th>Titulo</th>
-  <tr>
-
-  <?php
-        foreach($consulta->result() as $fila)
-        {?>
-        <tr>
-            <th><?=$fila->Id?></th>
-            <th><?=$fila->Titulo?></th>
-        </tr>
-        <?php
-        }
-        ?>
-  </table>
         <script src="<?php echo base_url()?>Assets/js/jquery-3.4.1.min.js"></script>
         <script src="<?php echo base_url()?>Assets/js/popper.min.js"></script>
         <script src="<?php echo base_url()?>Assets/js/bootstrap.js"></script>

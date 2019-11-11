@@ -8,10 +8,10 @@ class cnoticias extends CI_Controller
         $this->load->model('mnoticias');
     }
 
-    // public function noticia()
-    // {
-    //     $this->load->view('noticias');
-    // }
+    public function noticia()
+    {
+        $this->load->view('noticias');
+    }
 
     public function guardar()
     {

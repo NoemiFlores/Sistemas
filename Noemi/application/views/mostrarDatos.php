@@ -25,7 +25,7 @@
             <th><?=$fila->edad?></th>
             <th><?=$fila->email?></th>
             <th><?=$fila->sexo?></th>
-            <th><?=$fila->hobbies?></th>
+            <th><?=$fila->hobbie?></th>
             <th><?=$fila->usuario?></th>
             <th><?=$fila->contra?></th>
         </tr>

@@ -18,9 +18,9 @@ class Mnoticia extends CI_Model
         return $result->row();
     }
 
-    public function mostrarNoticia()
-    {
-        $result=$this->db->get('noticia');
-        return $data=array('consulta'=>$result);
-    }
+    //public function mostrarNoticia()
+    //{
+      //  $result=$this->db->get('noticia');
+        //return $data=array('consulta'=>$result);
+    //}
 }

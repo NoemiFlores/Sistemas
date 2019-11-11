@@ -124,10 +124,43 @@ class Formulario extends CI_Controller
         redirect(base_url().'Formulario/inicio');
     }
 
-    //noticias.php
+    //Registro de noticias
     public function noticias()
     {
         $this->load->view('noticias');
+    }
+
+    //mostrar tabla noticias
+    public function mostrarNoticias()
+    {
+        $result = $this->db->get('noticia');
+        $data=array('consulta'=>$result);
+        $this->load->view('mostrarNoticias',$data);
+    }
+
+    //ver noticias
+    public function verNoticia()
+    {
+        $this->load->view('verNoticia');
+    }
+
+    //modificar noticia
+    public function modificarNoticia($idnoticia=null)
+    {
+        if (!$idnoticia==null)
+        {
+            $this->layout->view('modificarNoticia');
+        }
+        else
+        {
+            redirect(base_url().'Formulario/mostrarNoticias');
+        }
+    }
+
+    //eliminar noticia
+    public function eliminarNoticia()
+    {
+        $this->load->view('eliminarNoticia');
     }
 }
 ?>
