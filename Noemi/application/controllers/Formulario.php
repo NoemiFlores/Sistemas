@@ -7,6 +7,7 @@ class Formulario extends CI_Controller
     {
         parent::__construct();//herencia
         $this->load->model('mdatos');//Manda llamar 'mdatos'
+        $this->load->model('mverNoticia');
         // $this->load->library('session');
         // session_start();//manejar sesiones
     }
@@ -138,29 +139,21 @@ class Formulario extends CI_Controller
         $this->load->view('mostrarNoticias',$data);
     }
 
-    //ver noticias
-    public function verNoticia()
+    //mostrar una noticia por id
+    public function verNoticia($idnoticia)
     {
-        $this->load->view('verNoticia');
-    }
-
-    //modificar noticia
-    public function modificarNoticia($idnoticia=null)
-    {
-        if (!$idnoticia==null)
-        {
-            $this->layout->view('modificarNoticia');
-        }
-        else
-        {
-            redirect(base_url().'Formulario/mostrarNoticias');
-        }
+        $var = $this->mverNoticia->getNoticias($idnoticia);
+        $this->load->view('verNoticia',compact('var'));
     }
 
     //eliminar noticia
-    public function eliminarNoticia()
+    public function eliminarNoticia($idnoticia)
     {
-        $this->load->view('eliminarNoticia');
+        //echo $idnoticia;
+        if($this->mverNoticia->eliminarNoticia($idnoticia))
+        {
+            redirect(base_url().'Formulario/mostrarNoticias');
+        }
     }
 }
 ?>
