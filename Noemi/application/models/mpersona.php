@@ -9,7 +9,7 @@ class Mpersona extends CI_Model
 
     public function guardar($nombre,$edad,$email,$genero,$hobbies,$usuario,$contra)
     {
-        return $this->db->query("INSERT INTO persona(nombre, edad, email, sexo, hobbies,usuario,contra) values('{$nombre}', '{$edad}', '{$email}', '{$genero}', '{$hobbies}','{$usuario}','{$contra}')");
+        return $this->db->query("INSERT INTO persona(nombre, edad, email, sexo, hobbie,usuario,contra) values('{$nombre}', '{$edad}', '{$email}', '{$genero}', '{$hobbies}','{$usuario}','{$contra}')");
 
         // $this->db->insert('persona',$nombre,$edad,$email,$genero,$hobbies);
         // return $this->db->insert_id();

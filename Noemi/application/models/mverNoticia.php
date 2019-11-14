@@ -21,4 +21,20 @@ class MverNoticia extends CI_Model
     {
         return $this->db->query("DELETE FROM noticia where idnoticia={$idnoticia}");
     }
+
+    public function obtenerNoticia(int $idnoticia)//funcion para editar la noticia
+    {
+        return $this->db->query("SELECT idnoticia,titulo,texto,autor,fecha FROM noticia where idnoticia={$idnoticia}")->row();
+    }
+
+    public function actualizar($param)
+    {
+        $campos=array(
+            'titulo'=>$param['titulo'],
+            'texto'=>$param['texto'],
+            'fecha'=>$param['fecha'],
+        );
+
+        $this->db->update('noticia',$campos);
+    }
 }

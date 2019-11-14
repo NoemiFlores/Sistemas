@@ -155,5 +155,29 @@ class Formulario extends CI_Controller
             redirect(base_url().'Formulario/mostrarNoticias');
         }
     }
+
+    //Modificar noticia
+    public function modificarNoticia($idnoticia=null)
+    {
+        if(!$idnoticia==null)
+        {
+            $idnoticia = $this->db->escape((int)$idnoticia);
+            $noticia=$this->mverNoticia->obtenerNoticia($idnoticia);
+            $this->load->view('modificarNoticia',compact('noticia'));
+        }
+        else
+        {
+            $this->load->view('mostrarNoticias');
+        }
+    }
+
+    public function actualizarNoticia()
+    {
+        $param['titulo']=$this->input->post('ititulo');
+        $param['texto']=$this->input->post('itexto');
+        $param['fecha']=$this->input->post('ifecha');
+
+        $this->mverNoticia->actualizar($param);
+    }
 }
 ?>

@@ -29,6 +29,11 @@
             </a>
             </td>
             <td>
+            <a href="modificarNoticia/<?php echo $fila->idnoticia?>">
+              <?php echo "Editar";?>
+            </a>
+            </td>
+            <td>
             <a href="eliminarNoticia/<?php echo $fila->idnoticia?>">
               <?php echo "Eliminar";?>
             </a>

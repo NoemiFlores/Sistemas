@@ -21,5 +21,6 @@ class cnoticias extends CI_Controller
         $param['fecha']=$this->input->post('ifecha');
 
         $this->mnoticias->guardar($param);
+        redirect('Formulario/noticias');
     }
 }

@@ -134,6 +134,7 @@
 		</div>
 	</div>
 
+	<a href="<?php echo base_url()?>Formulario/inicio">Inicio</a>
 
 
 	</form>

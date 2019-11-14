@@ -88,7 +88,7 @@
 			</div>
 		</div>
 	</div>
-
+	<a href="<?php echo base_url()?>Formulario/mostrarNoticias">Ver noticias</a>
 	</form>
 	</div> <!-- end container-->
 
